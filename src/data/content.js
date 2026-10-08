@@ -21,8 +21,8 @@ export const org = {
   },
   // Payment info for the Support Us page.
   payments: {
-    bkash: { number: '01612-583289', type: { en: 'Personal', bn: 'পার্সোনাল' } },
-    nagad: { number: '01612-583289', type: { en: 'Personal', bn: 'পার্সোনাল' } },
+    bkash: { number: '01825-745160', type: { en: 'Personal', bn: 'পার্সোনাল' } },
+    nagad: { number: '01825-745160', type: { en: 'Personal', bn: 'পার্সোনাল' } },
     bank: {
       name: { en: 'Service for Humanity', bn: 'সার্ভিস ফর হিউম্যানিটি' },
       bankName: { en: 'To be updated', bn: 'আপডেট করা হবে' },
