@@ -10,6 +10,28 @@ export default function ImageLightbox({ images, startIndex, onClose }) {
   const prev = () => setIndex((i) => (i > 0 ? i - 1 : images.length - 1))
   const next = () => setIndex((i) => (i < images.length - 1 ? i + 1 : 0))
 
+  const [touchStartX, setTouchStartX] = useState(null)
+  const [touchEndX, setTouchEndX] = useState(null)
+  
+  const minSwipeDistance = 50
+
+  const onTouchStart = (e) => {
+    setTouchEndX(null)
+    setTouchStartX(e.targetTouches[0].clientX)
+  }
+
+  const onTouchMove = (e) => setTouchEndX(e.targetTouches[0].clientX)
+
+  const onTouchEndEvent = () => {
+    if (!touchStartX || !touchEndX) return
+    const distance = touchStartX - touchEndX
+    const isLeftSwipe = distance > minSwipeDistance
+    const isRightSwipe = distance < -minSwipeDistance
+    
+    if (isLeftSwipe) next()
+    if (isRightSwipe) prev()
+  }
+
   const handleKey = (e) => {
     if (e.key === 'Escape') onClose()
     if (e.key === 'ArrowLeft') prev()
@@ -21,6 +43,9 @@ export default function ImageLightbox({ images, startIndex, onClose }) {
       className="lightbox"
       onClick={onClose}
       onKeyDown={handleKey}
+      onTouchStart={onTouchStart}
+      onTouchMove={onTouchMove}
+      onTouchEnd={onTouchEndEvent}
       tabIndex={0}
       ref={(el) => el && el.focus()}
     >
