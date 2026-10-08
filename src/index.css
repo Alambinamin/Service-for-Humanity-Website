@@ -1,0 +1,86 @@
+/* ── Google Fonts ── */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Bengali:wght@300;400;500;600;700&display=swap');
+
+/* ── Design Tokens ── */
+:root {
+  /* Backgrounds */
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F8FAFC;
+  --bg-glass: rgba(255, 255, 255, 0.75);
+  --bg-glass-hover: rgba(255, 255, 255, 0.95);
+
+  /* Accents */
+  --accent-warm: #0EA5E9;       /* Ocean Blue */
+  --accent-warm-dark: #0284C7;  /* Darker Blue */
+  --accent-gold: #38BDF8;       /* Light Blue */
+  --accent-sage: #10B981;       /* Emerald Green */
+  --accent-rose: #F43F5E;       /* Rose Red */
+  --gradient-warm: linear-gradient(135deg, #0EA5E9 0%, #10B981 100%);
+  --gradient-hero: linear-gradient(to top, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 0.25) 100%);
+
+  /* Text */
+  --text-heading: #0F172A;
+  --text-body: #475569;
+  --text-muted: #64748B;
+  --text-on-accent: #FFFFFF;
+
+  /* Borders & Shadows */
+  --border: #E2E8F0;
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.1), 0 2px 4px -1px rgba(15, 23, 42, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(15, 23, 42, 0.1), 0 4px 6px -2px rgba(15, 23, 42, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(15, 23, 42, 0.1), 0 10px 10px -5px rgba(15, 23, 42, 0.04);
+
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-xl: 32px;
+
+  /* Spacing */
+  --section-gap: 100px;
+
+  /* Typography */
+  --font-heading: 'Playfair Display', 'Noto Sans Bengali', Georgia, serif;
+  --font-body: 'Inter', 'Noto Sans Bengali', system-ui, sans-serif;
+
+  /* Transition */
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Reset & Base ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--text-body);
+  background: var(--bg-primary);
+  line-height: 1.7;
+  font-size: 16px;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--text-heading);
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+a { color: var(--accent-warm); text-decoration: none; transition: color 0.2s var(--ease); }
+a:hover { color: var(--accent-warm-dark); }
+
+img { max-width: 100%; height: auto; display: block; }
+
+button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+::selection {
+  background: rgba(212, 132, 90, 0.25);
+  color: var(--text-heading);
+}
