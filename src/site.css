@@ -1808,3 +1808,21 @@
   border-color: rgba(255, 255, 255, 0.3) !important;
   color: rgba(255, 255, 255, 0.9) !important;
 }
+
+/* ─────────────────── MOBILE HERO OPTIMIZATIONS ─────────────────── */
+@media (max-width: 768px) {
+  /* Prevent the banner from being overly cropped on mobile by reducing its fixed height */
+  .hero {
+    min-height: 85vh; /* Slightly shorter than full viewport */
+    padding: 100px 20px 60px;
+  }
+  
+  .page-hero {
+    padding: 120px 20px 80px !important;
+  }
+
+  /* Make sure faces/top of the image stays visible during cropping */
+  .hero-bg img {
+    object-position: center 20%; 
+  }
+}
