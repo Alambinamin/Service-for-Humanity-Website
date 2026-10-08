@@ -1861,3 +1861,34 @@
     margin-right: 16px; /* Space between toggle and hamburger menu */
   }
 }
+
+/* ─────────────────── MOBILE MENU LABEL ─────────────────── */
+.nav-toggle-icon {
+  width: 30px;
+  height: 18px;
+  position: relative;
+  display: block;
+}
+
+.nav-toggle-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-heading);
+  margin-top: 4px;
+}
+
+@media (max-width: 900px) {
+  .nav-toggle {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: auto !important;
+    width: auto !important;
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+  }
+}

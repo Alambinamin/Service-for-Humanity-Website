@@ -42,7 +42,10 @@ export default function Navbar() {
             aria-label="Toggle menu"
             onClick={() => setOpen((v) => !v)}
           >
-            <span className={`bar ${open ? 'open' : ''}`} />
+            <div className="nav-toggle-icon">
+              <span className={`bar ${open ? 'open' : ''}`} />
+            </div>
+            <span className="nav-toggle-label">{ct({ en: 'Menu', bn: 'মেনু' })}</span>
           </button>
         </div>
 
