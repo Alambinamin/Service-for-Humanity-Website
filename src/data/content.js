@@ -14,7 +14,7 @@ export const org = {
   },
   founded: 2019,
   email: 'serviceforhumanity@gmail.com',
-  phone: '+880 1612-583289',
+  phone: '+880 1825-745160',
   address: { en: 'Daganbhuiyan, Feni, Bangladesh', bn: 'দাগনভূঁইয়া, ফেনী, বাংলাদেশ' },
   social: {
     facebook: 'https://www.facebook.com/ServiceForHumanityBD',
