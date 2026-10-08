@@ -33,13 +33,18 @@ export default function Navbar() {
           <span className="brand-text">{ct(org.name)}</span>
         </Link>
 
-        <button
-          className="nav-toggle"
-          aria-label="Toggle menu"
-          onClick={() => setOpen((v) => !v)}
-        >
-          <span className={`bar ${open ? 'open' : ''}`} />
-        </button>
+        <div className="nav-controls" style={{ display: 'flex', alignItems: 'center' }}>
+          <div className="lang-mobile">
+            <LanguageToggle />
+          </div>
+          <button
+            className="nav-toggle"
+            aria-label="Toggle menu"
+            onClick={() => setOpen((v) => !v)}
+          >
+            <span className={`bar ${open ? 'open' : ''}`} />
+          </button>
+        </div>
 
         <nav className={`nav-links ${open ? 'show' : ''}`}>
           {links.map((l) => (
@@ -53,7 +58,9 @@ export default function Navbar() {
               {l.label}
             </NavLink>
           ))}
-          <LanguageToggle />
+          <div className="lang-desktop">
+            <LanguageToggle />
+          </div>
           <Link
             to="/support-us"
             className="nav-cta"

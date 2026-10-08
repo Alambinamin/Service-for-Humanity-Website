@@ -1843,3 +1843,21 @@
 .nav-toggle .bar::after {
   background: var(--text-heading) !important;
 }
+
+/* ─────────────────── LANGUAGE TOGGLE VISIBILITY ─────────────────── */
+.lang-mobile {
+  display: none;
+}
+.lang-desktop {
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .lang-desktop {
+    display: none;
+  }
+  .lang-mobile {
+    display: block;
+    margin-right: 16px; /* Space between toggle and hamburger menu */
+  }
+}
