@@ -1826,3 +1826,20 @@
     object-position: center 20%; 
   }
 }
+
+/* ─────────────────── FIX NAVBAR TRANSPARENCY ─────────────────── */
+.navbar {
+  padding: 10px 0 !important;
+  background: var(--bg-glass) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border-bottom: 1px solid var(--border) !important;
+  box-shadow: var(--shadow-sm) !important;
+}
+
+/* Also ensure the nav toggle (hamburger) icon lines are dark */
+.nav-toggle .bar,
+.nav-toggle .bar::before,
+.nav-toggle .bar::after {
+  background: var(--text-heading) !important;
+}
