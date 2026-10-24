@@ -29,7 +29,7 @@ export default function Navbar() {
     <header className={`navbar ${scrolled ? 'navbar-scrolled' : ''}`}>
       <div className="navbar-inner">
         <Link to="/" className="brand" onClick={() => setOpen(false)}>
-          <span className="brand-mark">SH</span>
+          <img src="/images/logo.jpg" alt="Service for Humanity Logo" className="brand-logo" />
           <span className="brand-text">{ct(org.name)}</span>
         </Link>
 

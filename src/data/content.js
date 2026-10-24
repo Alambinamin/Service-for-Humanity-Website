@@ -31,14 +31,14 @@ export const org = {
     },
   },
   // Single total stat shown on the site (update this manually).
-  totalDistributed: 910000,
+  totalDistributed: 945000,
 }
 
 // Headline impact numbers shown on the Home page.
 export const impact = [
   { icon: '🩺', value: 40, suffix: '+', label: { en: 'Medical cases helped', bn: 'চিকিৎসা সহায়তা' } },
   { icon: '🛒', value: 1200, suffix: '+', label: { en: 'Ramadan/Eid grocery packs', bn: 'রমজান/ঈদ মুদি প্যাক' } },
-  { icon: '💍', value: 15, suffix: '+', label: { en: 'Marriage funds supported', bn: 'বিবাহ তহবিল সহায়তা' } },
+  { icon: '💍', value: 16, suffix: '+', label: { en: 'Marriage funds supported', bn: 'বিবাহ তহবিল সহায়তা' } },
   { icon: '🩸', value: 6, suffix: '', label: { en: 'Blood donation camps', bn: 'রক্তদান ক্যাম্প' } },
   { icon: '⚽', value: 8, suffix: '', label: { en: 'Kids sports events', bn: 'শিশু ক্রীড়া ইভেন্ট' } },
   { icon: '🌍', value: 8, suffix: '', label: { en: 'Donor countries', bn: 'দাতা দেশ' } },
@@ -126,6 +126,22 @@ export const timeline = [
 
 // Work stories / case studies — each has a `category` for filtering.
 export const stories = [
+  {
+    id: 'marriage-aid-oct-2026',
+    category: 'marriage',
+    title: { en: 'Marriage Support for a Sister', bn: 'এক বোনের বিবাহের জন্য আর্থিক অনুদান' },
+    date: '2026-10-10',
+    place: { en: 'Daganbhuiyan, Feni', bn: 'দাগনভূঁইয়া, ফেনী' },
+    cover: '/images/posts/2026-10-10.jpg',
+    summary: {
+      en: 'Provided ৳35,000 financial grant to support the marriage and new beginning of a sister in our community.',
+      bn: 'আমাদের কমিউনিটির এক ছোট বোনের বিয়ের জন্য ৩৫,০০০ টাকার আর্থিক অনুদান প্রদান।',
+    },
+    body: {
+      en: 'On behalf of our organization "Service for Humanity", financial assistance of ৳35,000 was handed over for the wedding of a sister. Through collective community support, we stood by the family for this beautiful milestone.',
+      bn: 'আমাদের সংগঠন "সার্ভিস ফর হিউম্যানিটি"-এর পক্ষ থেকে এক ছোট বোনের বিয়ের জন্য আর্থিক অনুদান হিসেবে ৩৫,০০০ টাকা তুলে দেওয়া হয়েছে।',
+    },
+  },
   {
     id: 'child-medical-emergency',
     category: 'medical',
@@ -224,8 +240,10 @@ export const stories = [
   },
 ]
 
-// Photo gallery — references real photos from public/images/events/.
+// Photo gallery — references real photos from public/images/posts/ and public/images/events/.
 export const gallery = [
+  { id: 17, img: '/images/posts/2026-10-10.jpg', caption: { en: 'Marriage Support Aid (Oct 2026)', bn: 'বিবাহ সহায়তা অনুদান (অক্টোবর ২০২৬)' } },
+  { id: 18, img: '/images/posts/2026-10-10-1.jpg', caption: { en: 'Marriage Support handover', bn: 'অনুদান হস্তান্তরের মুহূর্ত' } },
   { id: 1,  img: '/images/posts/main-banner.jpg', caption: { en: 'Badminton Tournament', bn: 'ব্যাডমিন্টন টুর্নামেন্ট' } },
   { id: 2,  img: '/images/posts/2026-12-16.jpg', caption: { en: 'Football Tournament', bn: 'ফুটবল টুর্নামেন্ট' } },
   { id: 3,  img: '/images/posts/2026-03-01.jpg', caption: { en: 'Iftar Distribution', bn: 'ইফতার বিতরণ' } },

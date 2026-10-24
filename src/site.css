@@ -58,6 +58,24 @@
   transition: transform 0.3s var(--ease-spring);
 }
 
+.brand-logo {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1.5px solid rgba(245, 166, 35, 0.45);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+  display: block;
+  background: var(--bg-secondary);
+  transition: transform 0.35s var(--ease-spring), border-color 0.35s var(--ease), box-shadow 0.35s var(--ease);
+}
+
+.brand:hover .brand-logo {
+  transform: scale(1.08) rotate(-4deg);
+  border-color: var(--accent-warm);
+  box-shadow: 0 4px 18px rgba(245, 166, 35, 0.4);
+}
+
 .brand:hover .brand-mark {
   transform: rotate(-6deg) scale(1.05);
 }

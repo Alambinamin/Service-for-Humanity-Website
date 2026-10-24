@@ -10,7 +10,7 @@ export default function SiteFooter() {
       <div className="footer-grid">
         <div className="footer-col">
           <div className="brand">
-            <span className="brand-mark">SH</span>
+            <img src="/images/logo.jpg" alt="Service for Humanity Logo" className="brand-logo" />
             <span className="brand-text">{ct(org.name)}</span>
           </div>
           <p className="footer-about">{ct(org.tagline)}</p>

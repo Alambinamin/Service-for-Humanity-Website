@@ -22,6 +22,21 @@ export const posts = [
     ],
   },
   {
+    id: 'marriage-support-aid-2026',
+    date: '2026-10-10',
+    category: 'crisis',
+    caption: {
+      bn: 'আলহামদুলিল্লাহ! মানবতার কল্যাণে আমরা আরও এক ধাপ এগিয়ে।\nআমাদের সংগঠন "সার্ভিস ফর হিউম্যানিটি"-এর পক্ষ থেকে এক ছোট বোনের বিয়ের জন্য আর্থিক অনুদান প্রদান করা হয়েছে। সবার সম্মিলিত প্রচেষ্টায় বোনের নতুন জীবনের শুরুতে আমরা ৩৫,০০০/- (পঁয়ত্রিশ হাজার) টাকা আর্থিক অনুদান হিসেবে তুলে দিতে পেরেছি।\nযেসব সদস্য, দাতা এবং শুভাকাঙ্ক্ষী এই মহতী উদ্যোগে আর্থিকভাবে ও মানসিকভাবে পাশে ছিলেন, তাদের সবাইকে জানাই আন্তরিক কৃতজ্ঞতা। আপনাদের স্বতঃস্ফূর্ত সহযোগিতা ছাড়া এই সুন্দর কাজটি সম্পন্ন করা সম্ভব হতো না।\nছোট বোনের নতুন জীবনের জন্য অনেক অনেক দোয়া ও শুভকামনা।',
+      en: 'Alhamdulillah! Taking another step forward in the service of humanity.\nOn behalf of our organization "Service for Humanity", financial assistance was provided for the wedding of a sister in our community. Through the collective efforts of everyone, we were able to hand over ৳35,000 (Thirty-Five Thousand Taka) to support the beginning of her new life.\nWe extend our heartfelt gratitude to all members, donors, and well-wishers who stood by this noble initiative both financially and morally. Without your spontaneous support, this beautiful effort would not have been possible.\nPrayers and warmest best wishes for our sister\'s new journey ahead.',
+    },
+    cover: '/images/posts/2026-10-10.jpg',
+    images: [
+      '/images/posts/2026-10-10.jpg',
+      '/images/posts/2026-10-10-1.jpg',
+      '/images/posts/2026-10-10-2.jpg',
+    ],
+  },
+  {
     id: 'accident-medical-aid-2026',
     date: '2026-05-04',
     category: 'medical',
