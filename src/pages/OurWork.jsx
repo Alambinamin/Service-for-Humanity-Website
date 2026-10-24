@@ -3,6 +3,7 @@ import { posts, moreWork } from '../data/posts.js'
 import { useLanguage } from '../context/LanguageContext.jsx'
 import SectionHeading from '../components/SectionHeading.jsx'
 import ImageLightbox from '../components/ImageLightbox.jsx'
+import Reveal from '../components/Reveal.jsx'
 
 const categories = [
   { key: 'all', tKey: 'work.filter.all' },
@@ -129,45 +130,57 @@ export default function OurWork() {
           <img src="/images/posts/2026-12-16.jpg" alt="" loading="eager" />
         </div>
         <div className="page-hero-content">
-          <span className="badge">{t('work.badge')}</span>
-          <h1 className="page-title">
-            {t('work.heroTitle1')}{' '}
-            <span className="grad-text">{t('work.heroTitle2')}</span>
-          </h1>
-          <p className="page-lead">{t('work.heroLead')}</p>
+          <Reveal delay={0.1}>
+            <span className="badge">{t('work.badge')}</span>
+          </Reveal>
+          <Reveal delay={0.25}>
+            <h1 className="page-title">
+              {t('work.heroTitle1')}{' '}
+              <span className="grad-text">{t('work.heroTitle2')}</span>
+            </h1>
+          </Reveal>
+          <Reveal delay={0.4}>
+            <p className="page-lead">{t('work.heroLead')}</p>
+          </Reveal>
         </div>
       </section>
 
       {/* Post Feed */}
       <section className="section">
-        <SectionHeading
-          eyebrow={t('work.stories.eyebrow')}
-          title={t('work.stories.title')}
-        />
+        <Reveal>
+          <SectionHeading
+            eyebrow={t('work.stories.eyebrow')}
+            title={t('work.stories.title')}
+            center
+          />
+        </Reveal>
 
         {/* Filter Tabs */}
-        <div className="filter-tabs">
-          {categories.map((c) => (
-            <button
-              key={c.key}
-              className={`filter-tab ${filter === c.key ? 'active' : ''}`}
-              onClick={() => setFilter(c.key)}
-            >
-              {t(c.tKey)}
-            </button>
-          ))}
-        </div>
+        <Reveal delay={0.15}>
+          <div className="filter-tabs">
+            {categories.map((c) => (
+              <button
+                key={c.key}
+                className={`filter-tab ${filter === c.key ? 'active' : ''}`}
+                onClick={() => setFilter(c.key)}
+              >
+                {t(c.tKey)}
+              </button>
+            ))}
+          </div>
+        </Reveal>
 
         {/* Post Cards */}
         <div className="post-feed">
-          {filteredPosts.map((post) => (
-            <PostCard
-              key={post.id}
-              post={post}
-              lang={lang}
-              ct={ct}
-              onImageClick={openLightbox}
-            />
+          {filteredPosts.map((post, idx) => (
+            <Reveal key={post.id} delay={Math.min(idx * 0.1, 0.4)}>
+              <PostCard
+                post={post}
+                lang={lang}
+                ct={ct}
+                onImageClick={openLightbox}
+              />
+            </Reveal>
           ))}
         </div>
 
@@ -175,18 +188,22 @@ export default function OurWork() {
         {filteredMore.length > 0 && (
           <>
             <div className="more-work-divider">
-              <SectionHeading
-                eyebrow={lang === 'bn' ? 'আরও কাজ' : 'More Work'}
-                title={lang === 'bn' ? 'আরও কিছু কাজের ছবি' : 'More moments from our work'}
-              />
+              <Reveal>
+                <SectionHeading
+                  eyebrow={lang === 'bn' ? 'আরও কাজ' : 'More Work'}
+                  title={lang === 'bn' ? 'আরও কিছু কাজের ছবি' : 'More moments from our work'}
+                  center
+                />
+              </Reveal>
             </div>
             <div className="more-work-grid">
-              {filteredMore.map((item) => (
-                <MoreWorkItem
-                  key={item.id}
-                  item={item}
-                  onImageClick={openLightbox}
-                />
+              {filteredMore.map((item, idx) => (
+                <Reveal key={item.id} delay={Math.min(idx * 0.08, 0.3)}>
+                  <MoreWorkItem
+                    item={item}
+                    onImageClick={openLightbox}
+                  />
+                </Reveal>
               ))}
             </div>
           </>
