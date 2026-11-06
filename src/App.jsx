@@ -1,4 +1,5 @@
-import { Routes, Route } from 'react-router-dom'
+import { useEffect } from 'react'
+import { Routes, Route, useNavigate, useLocation } from 'react-router-dom'
 import Navbar from './components/Navbar.jsx'
 import SiteFooter from './components/SiteFooter.jsx'
 import ScrollToTop from './components/ScrollToTop.jsx'
@@ -13,6 +14,23 @@ import Contact from './pages/Contact.jsx'
 import './App.css'
 
 export default function App() {
+  const navigate = useNavigate()
+  const location = useLocation()
+
+  // Ensure whenever a user visits the site in a fresh session, they always land on the Home page
+  useEffect(() => {
+    try {
+      const isSessionActive = sessionStorage.getItem('sfh_active_session')
+      if (!isSessionActive) {
+        sessionStorage.setItem('sfh_active_session', 'true')
+        if (location.pathname !== '/') {
+          navigate('/', { replace: true })
+        }
+      }
+    } catch {
+      // Fallback for restricted storage environments
+    }
+  }, [])
   return (
     <SmoothScroll>
       <div className="app">

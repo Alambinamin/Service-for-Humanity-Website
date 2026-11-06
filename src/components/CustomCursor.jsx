@@ -16,7 +16,7 @@ export default function CustomCursor() {
       if (!visible) setVisible(true)
 
       const target = e.target
-      const isInteractive = target.closest('a, button, .gallery-item, .post-image-item, input, textarea, select, .filter-tab')
+      const isInteractive = target.closest('a, button, .gallery-card-item, .gallery-item, .post-image-item, input, textarea, select, .filter-tab, .giving-tier-btn, .copy-btn, .more-work-image')
       setHovered(Boolean(isInteractive))
     }
 

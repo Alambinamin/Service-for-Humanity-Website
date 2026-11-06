@@ -1,19 +1,19 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { CloseIcon, ChevronLeftIcon, ChevronRightIcon } from './Icons.jsx'
 
 /**
- * Full-screen lightbox that displays a single image at a time
- * with left/right navigation through a list of images.
+ * Full-screen lightbox with smooth gestures, keyboard navigation,
+ * and high-resolution rendering.
  */
 export default function ImageLightbox({ images, startIndex, onClose }) {
   const [index, setIndex] = useState(startIndex || 0)
+  const [touchStartX, setTouchStartX] = useState(null)
+  const [touchEndX, setTouchEndX] = useState(null)
 
   const prev = () => setIndex((i) => (i > 0 ? i - 1 : images.length - 1))
   const next = () => setIndex((i) => (i < images.length - 1 ? i + 1 : 0))
 
-  const [touchStartX, setTouchStartX] = useState(null)
-  const [touchEndX, setTouchEndX] = useState(null)
-  
-  const minSwipeDistance = 50
+  const minSwipeDistance = 45
 
   const onTouchStart = (e) => {
     setTouchEndX(null)
@@ -25,61 +25,90 @@ export default function ImageLightbox({ images, startIndex, onClose }) {
   const onTouchEndEvent = () => {
     if (!touchStartX || !touchEndX) return
     const distance = touchStartX - touchEndX
-    const isLeftSwipe = distance > minSwipeDistance
-    const isRightSwipe = distance < -minSwipeDistance
-    
-    if (isLeftSwipe) next()
-    if (isRightSwipe) prev()
+    if (distance > minSwipeDistance) next()
+    if (distance < -minSwipeDistance) prev()
   }
 
-  const handleKey = (e) => {
-    if (e.key === 'Escape') onClose()
-    if (e.key === 'ArrowLeft') prev()
-    if (e.key === 'ArrowRight') next()
-  }
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKey = (e) => {
+      if (e.key === 'Escape') onClose()
+      if (e.key === 'ArrowLeft') prev()
+      if (e.key === 'ArrowRight') next()
+    }
+    window.addEventListener('keydown', handleKey)
+    return () => window.removeEventListener('keydown', handleKey)
+  }, [images.length])
+
+  // Prevent background scrolling while open
+  useEffect(() => {
+    const prevOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.body.style.overflow = prevOverflow
+    }
+  }, [])
 
   return (
     <div
-      className="lightbox"
+      className="lightbox-overlay"
       onClick={onClose}
-      onKeyDown={handleKey}
       onTouchStart={onTouchStart}
       onTouchMove={onTouchMove}
       onTouchEnd={onTouchEndEvent}
-      tabIndex={0}
-      ref={(el) => el && el.focus()}
+      role="dialog"
+      aria-modal="true"
+      aria-label="Image gallery preview"
     >
-      <button className="lightbox-close" onClick={onClose}>
-        ✕
-      </button>
+      <div className="lightbox-chrome">
+        <div className="lightbox-counter">
+          <span>{index + 1}</span>
+          <span className="lightbox-counter-sep">/</span>
+          <span>{images.length}</span>
+        </div>
 
-      <img 
-        src={images[index]} 
-        alt="" 
-        className="lightbox-image"
-        onClick={(e) => e.stopPropagation()} 
-      />
+        <button
+          className="lightbox-close-btn"
+          onClick={onClose}
+          aria-label="Close preview"
+          title="Close (Esc)"
+        >
+          <CloseIcon className="w-6 h-6" />
+        </button>
+      </div>
+
+      <div className="lightbox-content-wrap" onClick={(e) => e.stopPropagation()}>
+        <img
+          src={images[index]}
+          alt="Service for Humanity event gallery"
+          className="lightbox-main-img"
+        />
+      </div>
 
       {images.length > 1 && (
         <>
-          <button 
-            className="lightbox-nav lightbox-prev" 
-            onClick={(e) => { e.stopPropagation(); prev(); }}
+          <button
+            className="lightbox-arrow-btn prev"
+            onClick={(e) => {
+              e.stopPropagation()
+              prev()
+            }}
+            aria-label="Previous image"
+            title="Previous (Left arrow)"
           >
-            ‹
+            <ChevronLeftIcon className="w-6 h-6" />
           </button>
-          <button 
-            className="lightbox-nav lightbox-next" 
-            onClick={(e) => { e.stopPropagation(); next(); }}
+          <button
+            className="lightbox-arrow-btn next"
+            onClick={(e) => {
+              e.stopPropagation()
+              next()
+            }}
+            aria-label="Next image"
+            title="Next (Right arrow)"
           >
-            ›
+            <ChevronRightIcon className="w-6 h-6" />
           </button>
-          <div 
-            className="lightbox-counter"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {index + 1} / {images.length}
-          </div>
         </>
       )}
     </div>

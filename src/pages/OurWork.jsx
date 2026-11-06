@@ -4,6 +4,7 @@ import { useLanguage } from '../context/LanguageContext.jsx'
 import SectionHeading from '../components/SectionHeading.jsx'
 import ImageLightbox from '../components/ImageLightbox.jsx'
 import Reveal from '../components/Reveal.jsx'
+import { CalendarIcon, MapPinIcon, SparklesIcon, ChevronRightIcon } from '../components/Icons.jsx'
 
 const categories = [
   { key: 'all', tKey: 'work.filter.all' },
@@ -38,10 +39,21 @@ function PostCard({ post, lang, ct, onImageClick }) {
 
   return (
     <article id={`post-${post.id}`} className="glass post-card">
-      {/* Date */}
-      <div className="post-date">
-        <span className="post-date-icon">📅</span>
-        {formatDate(post.date, lang)}
+      {/* Header Meta */}
+      <div className="post-header-meta">
+        <div className="post-date">
+          <CalendarIcon size={14} className="text-amber-400" />
+          <span>{formatDate(post.date, lang)}</span>
+        </div>
+        <div className="post-location-tag">
+          <MapPinIcon size={14} />
+          <span>{ct({ en: 'Daganbhuiyan, Feni', bn: 'দাগনভূঁইয়া, ফেনী' })}</span>
+        </div>
+        {post.category && (
+          <span className="post-category-badge">
+            {post.category.toUpperCase()}
+          </span>
+        )}
       </div>
 
       {/* Image Grid */}
@@ -52,17 +64,17 @@ function PostCard({ post, lang, ct, onImageClick }) {
             className="post-image-item"
             onClick={() => onImageClick(post.images, i)}
           >
-            <img src={img} alt="" loading="lazy" />
+            <img src={img} alt="Service for Humanity Campaign" loading="lazy" />
             {i === 3 && post.images.length > 4 && (
               <div className="post-image-more">
-                +{post.images.length - 4}
+                <span>+{post.images.length - 4} photos</span>
               </div>
             )}
           </div>
         ))}
       </div>
 
-      {/* Caption */}
+      {/* Caption & Field Notes */}
       <div className="post-caption">
         <p className={!expanded && isLong ? 'post-caption-truncated' : ''}>
           {captionText}
@@ -73,8 +85,8 @@ function PostCard({ post, lang, ct, onImageClick }) {
             onClick={() => setExpanded(!expanded)}
           >
             {expanded
-              ? lang === 'bn' ? 'সংক্ষেপে দেখুন' : 'Show less'
-              : lang === 'bn' ? 'আরও পড়ুন' : 'Read more'}
+              ? lang === 'bn' ? 'সংক্ষেপে দেখুন ▲' : 'Show less ▲'
+              : lang === 'bn' ? 'সম্পূর্ণ পড়ুন ▼' : 'Read full report ▼'}
           </button>
         )}
       </div>
@@ -82,24 +94,25 @@ function PostCard({ post, lang, ct, onImageClick }) {
   )
 }
 
-function MoreWorkItem({ item, onImageClick }) {
+function MoreWorkItem({ item, onImageClick, lang }) {
   return (
-    <div className="more-work-item">
+    <div className="more-work-item glass">
       {item.images.slice(0, 1).map((img) => (
         <div
           key={img}
           className="more-work-image"
           onClick={() => onImageClick(item.images, 0)}
         >
-          <img src={img} alt="" loading="lazy" />
+          <img src={img} alt="Service for Humanity event" loading="lazy" />
           {item.images.length > 1 && (
             <div className="more-work-badge">+{item.images.length - 1}</div>
           )}
         </div>
       ))}
-      <span className="more-work-date">
-        {formatDate(item.date, 'en')}
-      </span>
+      <div className="more-work-footer">
+        <CalendarIcon size={14} className="text-slate-400" />
+        <span className="more-work-date">{formatDate(item.date, lang)}</span>
+      </div>
     </div>
   )
 }
@@ -123,15 +136,19 @@ export default function OurWork() {
       : moreWork.filter((m) => m.category === filter)
 
   return (
-    <div className="page">
+    <div className="page page-work">
       {/* Page Hero */}
       <section className="page-hero">
         <div className="hero-bg">
           <img src="/images/posts/2026-12-16.jpg" alt="" loading="eager" />
+          <div className="hero-overlay" />
         </div>
         <div className="page-hero-content">
           <Reveal delay={0.1}>
-            <span className="badge">{t('work.badge')}</span>
+            <span className="badge">
+              <SparklesIcon size={14} />
+              <span>{t('work.badge')}</span>
+            </span>
           </Reveal>
           <Reveal delay={0.25}>
             <h1 className="page-title">
@@ -146,11 +163,15 @@ export default function OurWork() {
       </section>
 
       {/* Post Feed */}
-      <section className="section">
+      <section className="section section-work-feed">
         <Reveal>
           <SectionHeading
             eyebrow={t('work.stories.eyebrow')}
             title={t('work.stories.title')}
+            subtitle={ct({
+              en: 'Verifiable photo updates and records from our relief campaigns in Daganbhuiyan, Feni.',
+              bn: 'দাগনভূঁইয়া, ফেনীতে পরিচালিত আমাদের প্রতিটি কার্যক্রমের সচিত্র প্রতিবেদন ও প্রমাণ্য চিত্র।',
+            })}
             center
           />
         </Reveal>
@@ -158,22 +179,28 @@ export default function OurWork() {
         {/* Filter Tabs */}
         <Reveal delay={0.15}>
           <div className="filter-tabs">
-            {categories.map((c) => (
-              <button
-                key={c.key}
-                className={`filter-tab ${filter === c.key ? 'active' : ''}`}
-                onClick={() => setFilter(c.key)}
-              >
-                {t(c.tKey)}
-              </button>
-            ))}
+            {categories.map((c) => {
+              const count = c.key === 'all' 
+                ? posts.length 
+                : posts.filter((p) => p.category === c.key).length
+              return (
+                <button
+                  key={c.key}
+                  className={`filter-tab ${filter === c.key ? 'active' : ''}`}
+                  onClick={() => setFilter(c.key)}
+                >
+                  <span>{t(c.tKey)}</span>
+                  <span className="filter-count">{count}</span>
+                </button>
+              )
+            })}
           </div>
         </Reveal>
 
         {/* Post Cards */}
         <div className="post-feed">
           {filteredPosts.map((post, idx) => (
-            <Reveal key={post.id} delay={Math.min(idx * 0.1, 0.4)}>
+            <Reveal key={post.id} delay={Math.min(idx * 0.08, 0.3)}>
               <PostCard
                 post={post}
                 lang={lang}
@@ -186,27 +213,28 @@ export default function OurWork() {
 
         {/* More Work Grid */}
         {filteredMore.length > 0 && (
-          <>
+          <div className="more-work-section">
             <div className="more-work-divider">
               <Reveal>
                 <SectionHeading
-                  eyebrow={lang === 'bn' ? 'আরও কাজ' : 'More Work'}
-                  title={lang === 'bn' ? 'আরও কিছু কাজের ছবি' : 'More moments from our work'}
+                  eyebrow={lang === 'bn' ? 'আরও কাজ' : 'Field Archives'}
+                  title={lang === 'bn' ? 'আরও কিছু কাজের ছবি' : 'Additional Moments from the Field'}
                   center
                 />
               </Reveal>
             </div>
             <div className="more-work-grid">
               {filteredMore.map((item, idx) => (
-                <Reveal key={item.id} delay={Math.min(idx * 0.08, 0.3)}>
+                <Reveal key={item.id} delay={Math.min(idx * 0.06, 0.25)}>
                   <MoreWorkItem
                     item={item}
                     onImageClick={openLightbox}
+                    lang={lang}
                   />
                 </Reveal>
               ))}
             </div>
-          </>
+          </div>
         )}
       </section>
 

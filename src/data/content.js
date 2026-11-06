@@ -10,7 +10,7 @@ export const org = {
   },
   mission: {
     en: 'Service for Humanity is a volunteer-run initiative based in Daganbhuiyan, Feni. We gather generous contributions from friends and well-wishers living abroad and turn every taka into direct, visible help for people in need — emergency medical treatment, Ramadan and Eid grocery support, marriage funds, sports for children, blood donation, and help in times of accident or crisis.',
-    bn: 'সার্ভিস ফর হিউম্যানিটি দাগনভূঁইয়া, ফেনীতে অবস্থিত একটি স্বেচ্ছাসেবী উদ্যোগ। আমরা প্রবাসে থাকা বন্ধু ও শুভাকাঙ্ক্ষীদের উদার অবদান সংগ্রহ করি এবং প্রতিটি টাকাকে সরাসরি, দৃশ্যমান সাহায্যে রূপান্তরিত করি — জরুরি চিকিৎসা, রমজান ও ঈদের মুদি সহায়তা, বিবাহ তহবিল, শিশুদের খেলাধুলা, রক্তদান এবং দুর্ঘটনা বা সংকটের সময় সাহায্য।',
+    bn: 'সার্ভিস ফর হিউম্যানিটি ফেনীর দাগনভূঁইয়ার একটি অলাভজনক ও অরাজনৈতিক স্বেচ্ছাসেবী উদ্যোগ। প্রবাসে কর্মরত হৃদয়বান বন্ধুদের পাঠানো অনুদান আমরা শতভাগ নিষ্ঠা ও বিশ্বস্ততার সাথে পৌঁছে দিই সমাজের সবচেয়ে বিপন্ন ও অসহায় মানুষের হাতে—জরুরি চিকিৎসা, রমজান ও ঈদের খাদ্য উপহার, দরিদ্র কন্যার বিয়েতে সহায়তা, শিশুদের মানসিক ও শারীরিক বিকাশে খেলাধুলা, স্বেচ্ছায় রক্তদান এবং যেকোনো প্রাকৃতিক দুর্যোগ বা দুর্ঘটনায় সরাসরি পাশে থাকা।',
   },
   founded: 2019,
   email: 'serviceforhumanity2019@gmail.com',
@@ -36,46 +36,46 @@ export const org = {
 
 // Headline impact numbers shown on the Home page.
 export const impact = [
-  { icon: '🩺', value: 40, suffix: '+', label: { en: 'Medical cases helped', bn: 'চিকিৎসা সহায়তা' } },
-  { icon: '🛒', value: 1200, suffix: '+', label: { en: 'Ramadan/Eid grocery packs', bn: 'রমজান/ঈদ মুদি প্যাক' } },
-  { icon: '💍', value: 16, suffix: '+', label: { en: 'Marriage funds supported', bn: 'বিবাহ তহবিল সহায়তা' } },
-  { icon: '🩸', value: 6, suffix: '', label: { en: 'Blood donation camps', bn: 'রক্তদান ক্যাম্প' } },
-  { icon: '⚽', value: 8, suffix: '', label: { en: 'Kids sports events', bn: 'শিশু ক্রীড়া ইভেন্ট' } },
-  { icon: '🌍', value: 8, suffix: '', label: { en: 'Donor countries', bn: 'দাতা দেশ' } },
+  { icon: '🩺', value: 40, suffix: '+', label: { en: 'Medical cases helped', bn: 'জরুরি চিকিৎসা সহায়তা' } },
+  { icon: '🛒', value: 1200, suffix: '+', label: { en: 'Ramadan/Eid grocery packs', bn: 'রমজান ও ঈদ খাদ্য উপহার' } },
+  { icon: '💍', value: 16, suffix: '+', label: { en: 'Marriage funds supported', bn: 'দরিদ্র কন্যা বিবাহ সহায়তা' } },
+  { icon: '🩸', value: 6, suffix: '', label: { en: 'Blood donation camps', bn: 'স্বেচ্ছায় রক্তদান কর্মসূচি' } },
+  { icon: '⚽', value: 8, suffix: '', label: { en: 'Kids sports events', bn: 'শিশু-কিশোর ক্রীড়া প্রতিযোগিতা' } },
+  { icon: '🌍', value: 8, suffix: '', label: { en: 'Donor countries', bn: 'প্রবাসী দাতা দেশ' } },
 ]
 
 // Core values for the About page.
 export const values = [
   {
     icon: '🔍',
-    title: { en: 'Transparency', bn: 'স্বচ্ছতা' },
+    title: { en: 'Transparency', bn: 'শতভাগ স্বচ্ছতা' },
     desc: {
       en: 'Every taka is tracked and reported. Our community always knows where the funds go.',
-      bn: 'প্রতিটি টাকার হিসাব রাখা হয় এবং জানানো হয়। আমাদের কমিউনিটি সবসময় জানে টাকা কোথায় যায়।',
+      bn: 'সংগৃহীত ও ব্যয়কৃত প্রতিটি টাকার পুঙ্খানুপুঙ্খ হিসাব রাখা হয়। কোনো প্রকার প্রশাসনিক খরচ কর্তন না করে সরাসরি প্রাপকের হাতে তুলে দেওয়া হয়।',
     },
   },
   {
     icon: '🤝',
-    title: { en: 'Community', bn: 'সম্প্রদায়' },
+    title: { en: 'Community', bn: 'ভ্রাতৃত্ববোধ ও সহমর্মিতা' },
     desc: {
       en: 'We are neighbours helping neighbours — rooted in Daganbhuiyan, serving our own people.',
-      bn: 'আমরা প্রতিবেশী সাহায্য করছি প্রতিবেশীকে — দাগনভূঁইয়ায় শেকড়, নিজের মানুষের সেবায়।',
+      bn: 'দাগনভূঁইয়ার মাটিতে আমাদের শেকড়—নিজের এলাকার আপন মানুষের বিপদে সবার আগে পাশে দাঁড়ানোই আমাদের অঙ্গীকার।',
     },
   },
   {
     icon: '💜',
-    title: { en: 'Dignity', bn: 'মর্যাদা' },
+    title: { en: 'Dignity', bn: 'মর্যাদা ও আত্মসম্মান' },
     desc: {
       en: 'We deliver help with respect, ensuring every family is treated with honour.',
-      bn: 'আমরা সম্মানের সাথে সাহায্য পৌঁছে দিই, নিশ্চিত করি প্রতিটি পরিবার মর্যাদা পায়।',
+      bn: 'আমরা দান নয়, আমানত পৌঁছে দিই। প্রতিটি অসহায় পরিবারের আত্মসম্মান ও মর্যাদা সমুন্নত রাখাই আমাদের সর্বোচ্চ অগ্রাধিকার।',
     },
   },
   {
     icon: '⚡',
-    title: { en: 'Direct Action', bn: 'সরাসরি পদক্ষেপ' },
+    title: { en: 'Direct Action', bn: 'সরাসরি সেবা' },
     desc: {
       en: 'No middlemen. Volunteers personally deliver help to those who need it most.',
-      bn: 'কোনো মধ্যস্থতাকারী নেই। স্বেচ্ছাসেবীরা ব্যক্তিগতভাবে সবচেয়ে অভাবীদের কাছে সাহায্য পৌঁছে দেয়।',
+      bn: 'মাঝখানে কোনো মধ্যস্বত্বভোগী নেই। আমাদের নিবেদিতপ্রাণ তরুণ স্বেচ্ছাসেবীরা স্বহস্তে সাহায্য পৌঁছে দেন।',
     },
   },
 ]
@@ -84,42 +84,42 @@ export const values = [
 export const timeline = [
   {
     year: '2019',
-    title: { en: 'Founded', bn: 'প্রতিষ্ঠিত' },
+    title: { en: 'Founded', bn: 'সূচনা পর্ব' },
     desc: {
       en: 'A group of young people from Daganbhuiyan start collecting funds from friends abroad.',
-      bn: 'দাগনভূঁইয়ার কিছু তরুণ প্রবাসী বন্ধুদের কাছ থেকে তহবিল সংগ্রহ শুরু করে।',
+      bn: 'দাগনভূঁইয়ার একদল নিবেদিত তরুণ প্রবাসী বন্ধুদের সহমর্মিতা নিয়ে প্রথম তহবিল গঠন করে।',
     },
   },
   {
     year: '2020',
-    title: { en: 'First Medical Aid', bn: 'প্রথম চিকিৎসা সহায়তা' },
+    title: { en: 'First Medical Aid', bn: 'প্রথম জরুরি চিকিৎসা সেবা' },
     desc: {
       en: 'Funded emergency medical treatment for the first time during the pandemic.',
-      bn: 'মহামারির সময় প্রথমবারের মতো জরুরি চিকিৎসা সহায়তা প্রদান।',
+      bn: 'মহামারির কঠিন সময়ে অর্থাভাবে আটকে থাকা এক রোগীর জরুরি চিকিৎসার সম্পূর্ণ ব্যয়ভার গ্রহণ।',
     },
   },
   {
     year: '2022',
-    title: { en: 'Growing Impact', bn: 'ক্রমবর্ধমান প্রভাব' },
+    title: { en: 'Growing Impact', bn: 'কার্যক্রমের বিস্তৃতি' },
     desc: {
       en: 'Ramadan grocery programs expanded. First blood donation camp organized.',
-      bn: 'রমজান মুদি কর্মসূচি সম্প্রসারিত। প্রথম রক্তদান ক্যাম্প আয়োজিত।',
+      bn: 'রমজানে বাড়ি বাড়ি খাদ্য উপহার পৌঁছে দেওয়া এবং প্রথম স্বেচ্ছায় রক্তদান ক্যাম্পের সফল আয়োজন।',
     },
   },
   {
     year: '2024',
-    title: { en: 'Community Sports', bn: 'সামাজিক ক্রীড়া' },
+    title: { en: 'Community Sports', bn: 'তারুণ্য ও সামাজিক কল্যাণ' },
     desc: {
       en: 'Launched kids sports events and marriage support programs.',
-      bn: 'শিশু ক্রীড়া ইভেন্ট এবং বিবাহ সহায়তা কর্মসূচি চালু।',
+      bn: 'শিশু-কিশোরদের ক্রীড়া আসর ও সুবিধাবঞ্চিত পরিবারের কন্যার বিবাহ সহায়তা কর্মসূচি শুরু।',
     },
   },
   {
     year: '2025',
-    title: { en: '৳9 Lakh+ Distributed', bn: '৳৯ লক্ষ+ বিতরণ' },
+    title: { en: '৳9 Lakh+ Distributed', bn: '৳৯ লক্ষাধিক সহায়তার মাইলফলক' },
     desc: {
       en: 'Crossed ৳9,00,000 in total aid distributed to families in need.',
-      bn: 'অভাবী পরিবারগুলোকে মোট ৳৯,০০,০০০+ সাহায্য বিতরণের মাইলফলক অতিক্রম।',
+      bn: 'অসহায় ও দুস্থ পরিবারগুলোর মাঝে সরাসরি ৯ লক্ষাধিক টাকার মানবিক সাহায্য বিতরণের মাইলফলক অর্জন।',
     },
   },
 ]

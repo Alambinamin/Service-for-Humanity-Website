@@ -1,91 +1,209 @@
-/* ── Google Fonts ── */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Bengali:wght@300;400;500;600;700&display=swap');
+/* ── Google Fonts (Restoring original live Vercel typography: Playfair Display + Inter + Noto Sans Bengali) ── */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Bengali:wght@300;400;500;600;700&family=Hind+Siliguri:wght@400;500;600;700&display=swap');
 
-/* ── Design Tokens — Cinematic Dark Theme ── */
+/* ── Design Tokens — Editorial Humanitarian Theme ── */
 :root {
-  /* Backgrounds — Deep cinematic dark */
-  --bg-primary: #0A0A0F;
-  --bg-secondary: #12121A;
-  --bg-tertiary: #1A1A25;
-  --bg-glass: rgba(18, 18, 26, 0.85);
-  --bg-glass-hover: rgba(26, 26, 37, 0.95);
+  /* Canvas & Surfaces: Deep Obsidian Slate */
+  --bg-primary: #0B0F15;
+  --bg-secondary: #111827;
+  --bg-tertiary: #182232;
+  --bg-card: rgba(17, 24, 39, 0.78);
+  --bg-card-hover: rgba(24, 34, 50, 0.92);
+  --bg-glass: rgba(15, 23, 38, 0.75);
+  --bg-glass-hover: rgba(23, 33, 52, 0.90);
 
-  /* Accents — Warm gold on dark canvas */
-  --accent-warm: #F5A623;
-  --accent-warm-dark: #E8963A;
-  --accent-gold: #FFD700;
-  --accent-sage: #10B981;
+  /* Primary Accent: Warm Amber Gold (Generosity, Action, Heart) */
+  --accent-warm: #F59E0B;
+  --accent-warm-hover: #D97706;
+  --accent-warm-light: #FDE68A;
+  --accent-gold: #FBBF24;
+  --gradient-warm: linear-gradient(135deg, #F59E0B 0%, #D97706 60%, #B45309 100%);
+
+  /* Humanitarian Emerald (Hope, Life, Bangladesh, Relief) */
+  --accent-emerald: #10B981;
+  --accent-emerald-dark: #059669;
+  --accent-emerald-deep: #064E3B;
+  --gradient-emerald: linear-gradient(135deg, #10B981 0%, #059669 100%);
+
+  /* Accents & Signals */
   --accent-rose: #F43F5E;
-  --gradient-warm: linear-gradient(135deg, #F5A623 0%, #E8963A 50%, #D4845A 100%);
-  --gradient-hero: linear-gradient(to top, rgba(10, 10, 15, 1) 0%, rgba(10, 10, 15, 0.6) 35%, rgba(10, 10, 15, 0.15) 60%, rgba(10, 10, 15, 0.4) 100%);
-  --gradient-glow: radial-gradient(ellipse at center, rgba(245, 166, 35, 0.15) 0%, transparent 70%);
+  --accent-blue: #38BDF8;
+  --accent-bkash: #E2136E;
+  --accent-nagad: #F7941D;
 
-  /* Text — Light on dark */
-  --text-heading: #F5F5F7;
-  --text-body: #A1A1AA;
-  --text-muted: #71717A;
-  --text-on-accent: #0A0A0F;
+  /* Atmospheric Gradients */
+  --gradient-hero: linear-gradient(to top, rgba(11, 15, 21, 1) 0%, rgba(11, 15, 21, 0.75) 30%, rgba(11, 15, 21, 0.35) 65%, rgba(11, 15, 21, 0.6) 100%);
+  --gradient-card: linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%);
+  --gradient-glow: radial-gradient(ellipse at 50% 0%, rgba(16, 185, 129, 0.12) 0%, transparent 70%);
 
-  /* Borders & Shadows — Subtle on dark */
-  --border: rgba(255, 255, 255, 0.08);
-  --border-hover: rgba(255, 255, 255, 0.15);
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
-  --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.5);
-  --shadow-xl: 0 24px 48px rgba(0, 0, 0, 0.6);
-  --shadow-glow: 0 0 40px rgba(245, 166, 35, 0.15);
+  /* Typography Colors */
+  --text-heading: #F8FAFC;
+  --text-body: #94A3B8;
+  --text-muted: #64748B;
+  --text-on-accent: #0B0F15;
+  --text-on-emerald: #FFFFFF;
 
-  /* Radius — Slightly reduced for editorial feel */
-  --radius-sm: 6px;
-  --radius-md: 12px;
-  --radius-lg: 16px;
-  --radius-xl: 24px;
+  /* Borders & Separation */
+  --border: rgba(255, 255, 255, 0.09);
+  --border-hover: rgba(255, 255, 255, 0.18);
+  --border-accent: rgba(245, 158, 11, 0.35);
+  --border-emerald: rgba(16, 185, 129, 0.25);
 
-  /* Spacing */
-  --section-gap: 100px;
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 16px -2px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 12px 32px -4px rgba(0, 0, 0, 0.55);
+  --shadow-xl: 0 24px 50px -10px rgba(0, 0, 0, 0.7);
+  --shadow-emerald: 0 8px 30px -4px rgba(16, 185, 129, 0.25);
+  --shadow-warm: 0 8px 30px -4px rgba(245, 158, 11, 0.3);
 
-  /* Typography — Bold editorial scale */
+  /* Radius System */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-pill: 9999px;
+
+  /* Spacing Scale */
+  --section-gap: 96px;
+
+  /* Fonts — Restored to live Vercel typography (Playfair Display + Inter + Noto Sans Bengali) */
   --font-heading: 'Playfair Display', 'Noto Sans Bengali', Georgia, serif;
   --font-body: 'Inter', 'Noto Sans Bengali', system-ui, sans-serif;
+  --font-bengali: 'Noto Sans Bengali', 'Hind Siliguri', system-ui, sans-serif;
 
-  /* Transition — Smooth, cinematic */
+  /* Easing curves */
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-out: cubic-bezier(0, 0, 0.2, 1);
   --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 /* ── Reset & Base ── */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
 }
 
 body {
   font-family: var(--font-body);
   color: var(--text-body);
-  background: var(--bg-primary);
+  background-color: var(--bg-primary);
   line-height: 1.7;
   font-size: 16px;
   overflow-x: hidden;
+  selection-background-color: rgba(245, 158, 11, 0.25);
+}
+
+/* Calibrate Bengali line-height & spacing for vowel signs */
+:lang(bn), .bengali-text, html[lang="bn"] {
+  font-family: var(--font-bengali);
+  line-height: 1.85 !important;
+  word-spacing: 0.04em;
+}
+
+html[lang="bn"] h1,
+html[lang="bn"] h2,
+html[lang="bn"] h3,
+html[lang="bn"] h4,
+html[lang="bn"] h5,
+html[lang="bn"] h6 {
+  font-family: var(--font-bengali);
+  line-height: 1.4 !important;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   color: var(--text-heading);
-  line-height: 1.2;
+  line-height: 1.25;
   font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
-a { color: var(--accent-warm); text-decoration: none; transition: color 0.3s var(--ease); }
-a:hover { color: var(--accent-warm-dark); }
+a {
+  color: var(--accent-warm);
+  text-decoration: none;
+  transition: all 0.2s var(--ease);
+}
 
-img { max-width: 100%; height: auto; display: block; }
+a:hover {
+  color: var(--accent-warm-light);
+}
 
-button { cursor: pointer; border: none; background: none; font-family: inherit; }
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+  transition: all 0.2s var(--ease);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Accessible keyboard focus states */
+*:focus-visible {
+  outline: 2px solid var(--accent-warm);
+  outline-offset: 3px;
+}
 
 ::selection {
-  background: rgba(245, 166, 35, 0.3);
-  color: var(--text-heading);
+  background: rgba(245, 158, 11, 0.25);
+  color: #FFFFFF;
 }
+
+/* Scrollbar polish */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-pill);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(245, 158, 11, 0.4);
+}
+
+/* ── Vector Icons Core & Dimensional Utilities ── */
+svg.icon-svg,
+.icon-svg {
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
+  max-width: 100%;
+}
+
+.w-3, .h-3 { width: 12px !important; height: 12px !important; }
+.w-3\.5, .h-3\.5 { width: 14px !important; height: 14px !important; }
+.w-4, .h-4 { width: 16px !important; height: 16px !important; }
+.w-5, .h-5 { width: 20px !important; height: 20px !important; }
+.w-6, .h-6 { width: 24px !important; height: 24px !important; }
+.w-7, .h-7 { width: 28px !important; height: 28px !important; }
+.w-8, .h-8 { width: 32px !important; height: 32px !important; }
+
+/* Icon Color Helpers */
+.text-amber-400 { color: #F59E0B !important; }
+.text-emerald-400 { color: #10B981 !important; }
+.text-blue-400 { color: #38BDF8 !important; }
+.text-rose-400 { color: #F43F5E !important; }
+.text-slate-400 { color: #94A3B8 !important; }
+.text-white { color: #FFFFFF !important; }
+
